@@ -19,11 +19,6 @@ dotenv.config();
 app.use(cors());
 
 
-app.use(express.json())// parsing
-
-const PORT = process.env.PORT || 9000;
-
-
 //mongo db config
 mongoose.set('strictQuery', true);
 mongoose.connect(process.env.MONGO_URL).then(() => {
@@ -31,6 +26,13 @@ mongoose.connect(process.env.MONGO_URL).then(() => {
 }).catch((err) => {
     console.log("db connection error", err.message)
 })
+
+app.use(express.json())// parsing
+
+const PORT = process.env.PORT || 9000;
+
+
+
 
 //routes
 
